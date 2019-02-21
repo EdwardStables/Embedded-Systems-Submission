@@ -1,0 +1,190 @@
+.navbar {
+  background: #fff;
+  margin: auto;
+  border-bottom: 1px dotted #bdc3c7;
+}
+
+.site-header.jumbotron {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
+  background-color: #fff;
+  padding: 2rem 0 2rem;
+}
+
+.site-header.jumbotron img {
+  height: auto;
+  width: 100%;
+  padding: 0;
+}
+
+#border-top {
+  border-top: 1px solid #34495e;
+  position: absolute;
+  left: 25%;
+  right: 25%
+}
+
+#mission-section, #team-section, #partners-section, #contact-section {
+  margin: 4rem 0 4rem;
+  font-family: 'Questrial', sans-serif;
+}
+
+#mission-statement {
+  text-align: justify;
+}
+
+.carousel-indicators li {
+  background-color: rgba(70, 70, 70,0.7) !important;
+}
+
+.carousel-indicators .active{
+    background-color: rgba(70, 70, 70,1);
+}
+
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-item .img-fluid {
+  width:100%;
+  height:100%;
+}
+
+#team-section .card {
+    border: none;
+    background: #ffffff;
+}
+
+#team-section .btn-primary:hover,
+#team-section .btn-primary:focus {
+    background-color: #487eb0;
+    border-color: #487eb0;
+    box-shadow: none;
+    outline: none;
+}
+
+#team-section .btn-primary {
+    color: #fff;
+    background-color: #487eb0;
+}
+
+.image-flip:hover .backside,
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip:hover .frontside,
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside .card,
+.backside .card {
+    min-height: 312px;
+}
+
+.backside .card a {
+    font-size: 18px;
+    color: #487eb0 !important;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #487eb0 !important;
+}
+
+.frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.icon_enlarge {
+    transition: transform .2s;
+}
+
+.icon_enlarge:hover {
+    transform:scale(1.5);
+}
+
+@media only screen and (max-width: 768px) {
+  .site-header.jumbotron {
+    padding: 5rem 0 5rem;
+  }
+
+  #mission-section, #team-section, #partners-section, #contact-section {
+    margin: 4rem 2rem 4rem;
+  }
+
+  #mission-section h4 {
+    font-size: 1.2em;
+  }
+}

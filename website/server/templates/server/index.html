@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jaffa Cakes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'server/assets/css/default.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- <div class="nav-bg sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light">
+          <a href="#" class="navbar-brand">
+            <img src="" height="40" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div> -->
+
+      <section id="mission-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <h1 class="text-center serif">Temperature</h1>
+              <canvas id="tempChart" width="400" height="400"></canvas>
+              <script>
+              var ctx1 = document.getElementById("tempChart");
+              var temp_data = {{temp_data|safe}};
+              var time_temp_data = {{time_data|safe}};
+              var tempChart = new Chart(ctx1, {
+                  type: 'line',
+                  data: {
+                      labels: time_temp_data,
+                      datasets: [{
+                          label: 'Temperature',
+                          fill: false,
+                          data: temp_data,
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(255, 159, 64, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgba(255,99,132,1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero:true,
+                              }
+                          }]
+                      }
+                  }
+              });
+              </script>
+            </div>
+            <div class="col-sm-6">
+              <h1 class="text-center serif">Angle</h1>
+              <canvas id="angleChart" width="400" height="400"></canvas>
+              <script>
+
+                var ctx2 = document.getElementById("angleChart");
+                var angle_data = {{angle_data|safe}};
+                var time_angle_data = {{time_data|safe}};
+                var angleChart = new Chart(ctx2, {
+                    type: 'line',
+                    data: {
+                        labels: time_angle_data,
+                        datasets: [{
+                            label: 'Angle',
+                            fill: false,
+                            data: angle_data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255,99,132,1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true,
+                                    suggestedMax:180
+                                }
+                            }]
+                        }
+                    }
+                });
+              </script>
+              </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="mission-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <h1 class="text-center serif" style="margin: 1rem">Set Parameters</h1>
+              <!--<form id ="limit_form" method="post" action=#>
+                {% csrf_token %}
+                Minimum Temperature:
+                <input type="text" name="min_temp" value="">
+                <br>
+                Maximum Temperature:
+                <input type="text" name="max_temp" value="">
+                <br>
+                Maximum Angle:
+                <input type="text" name="max_angle" value="">
+                <br>
+                Maximum Acceleration:
+                <input type="text" name="max_acc" value="">
+                <br>
+                <input type="submit" name = "limit_form" value="Submit">
+              </form>-->
+              <form action='#' method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+              </form>
+              <form action='#', method="post">
+                {% csrf_token %}
+                <input type = "submit" value = "Reset", name="Reset">
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <h1 class="text-center serif" style="margin: 1rem">Violations</h1>
+              <table style="width:100%">
+                <tr>
+                  <th>Date Time</th>
+                  <th>Temperature</th>
+                  <th>Angle</th>
+                  <th>Acceleration</th>
+                </tr>
+                {% for violation in violations %}
+                <tr>
+                  <td>{{ violation.time }}</td>
+                  <td>{{ violation.temp }}</td>
+                  <td>{{ violation.angle }}</td>
+                  <td>{{ violation.accel }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </body>
+
+
+</html>
